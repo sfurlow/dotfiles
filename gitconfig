@@ -1,0 +1,46 @@
+
+[user]
+    name = Scott Furlow 
+    email = scottfurlow@gmail.com
+
+[core]
+    editor = vim
+    excludesfile = ./.gitignore
+
+[alias]
+	alias = config --get-regexp ^alias\\.
+	chp = cherry-pick
+	dc = diff --cached -C
+	lg = log --graph --pretty=format:'%Cred%h %C(bold blue)%an%C(bold yellow)%d%Creset %s'
+	lga = log --graph --pretty=format:'%Cred%h %C(bold blue)%an%C(bold yellow)%d%Creset %s %C(bold green)[%cd]' --all --date=relative
+	lgb = log --graph --pretty=format:'%Cred%h %C(bold blue)%an%C(bold yellow)%d%Creset %s' --all --simplify-by-decoration
+	lgd = log --graph --pretty=format:'%Cred%h %Cgreen%ad %C(bold blue)%an%C(bold yellow)%d%Creset %s' --date=short
+	lgf = log --graph --pretty=format:'%Cred%h %C(bold blue)%an%C(bold yellow)%d%Creset %s' --name-only
+	lgfa = log --graph --pretty=format:'%Cred%h %C(bold blue)%an%C(bold yellow)%d%Creset %s' --name-only --all
+	lgl = log --graph --pretty=format:'%Cred%h %Cgreen%ci %C(bold blue)%an%C(bold yellow)%d%Creset\n- %s'
+	lgm = log --oneline --decorate --graph --color --no-merges
+	lgs = log --oneline --decorate --graph --color
+	nuke = !sh git-nuke
+	sno = show --name-only
+	st=status .
+
+[branch]
+	autosetupmerge = true
+
+[color]
+	ui = auto
+[merge]
+	conflictstyle = diff3
+	defaultToUpstream = true
+[rerere]
+	enabled = true
+[diff]
+	algorithm = minimal
+[push]
+	#default = simple
+[credential]
+	helper = store
+[core]
+	excludesfile = /home/furlowsa/.gitignore
+[push]
+	default = simple

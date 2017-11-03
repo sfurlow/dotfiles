@@ -1,0 +1,5 @@
+startup_message off
+vbell off
+defscrollback 5000
+autodetach on
+hardstatus alwayslastline "%{= kg}[ %{R}%H %{g}][%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{W}%D, %M/%d/%Y %{W}%c%{g}]"
