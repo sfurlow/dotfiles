@@ -70,17 +70,25 @@ fi
 
 alias vi='vim -X'
 alias which=type
-alias pip=pip3
+#alias pip=pip3
 alias starttomcat="systemctl start tomcat8"
 alias stoptomcat="systemctl stop tomcat8"
 alias restarttomcat="systemctl restart tomcat8"
-alias python=python3
+#alias python=python3
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias more="less"
 alias src="cd ~/src"
 alias scm="cd ~/scm"
+alias ghc="stack ghc"
+alias ghci="stack ghci"
+alias gt="gnupod-tools"
+alias gnupod_search="gnupod_search -m /media/scottyp/BEARS\!/"
+alias gnupod_addsong="gnupod_search -m /media/scottyp/BEARS\!/"
+alias gnupod_unplug='mktunes -m /media/scottyp/BEARS\!/ && umount /media/scottyp/BEARS\!/'
+alias lynx="lynx -cfg=/home/scottyp/lynx.cfg"
+alias open="xdg-open"
 
 function dc
 {
