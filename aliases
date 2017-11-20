@@ -1,0 +1,32 @@
+# .bashrc
+
+alias active="users | grep -o $USER | wc -l"
+alias checkcert="openssl x509 -noout -text -in"
+alias checkoutgoing="netstat -nputw"
+alias checkreq="openssl req -noout -text -in"
+alias createca="openssl req -config ~/.certauthority/config.cnf -key ~/.certauthority/private/ca.key.pem -new -x509 -days 7300 -sha256 -extensions v3_ca -out ~/.certauthority/certs/ca.cert.pem"
+alias ctags="ctags -R --exclude=build --exclude=dist --exclude=lib"
+alias curl-follow="curl -L"
+alias curl-save="curl -o"
+alias decrypt="gpg -d"
+alias encrypt="gpg -c"
+alias grep="grep --color=auto"
+alias header-c="curl -I --compress"
+alias header-f="curl -I -L"
+alias header="curl -I"
+alias jsonlint="python3 -m json.tool"
+alias mkdir="mkdir -pv"
+alias pprint="xmllint --format"
+alias python="python3"
+alias scm="cd ~/scm"
+alias strace-network="strace -f -e trace=network -s 10000"
+alias tac="/usr/bin/tac"
+alias unhash="hash -d"
+alias uuid="uuidgen"
+alias veiw='vim -XR'
+alias vi='vim -X'
+alias view='vim -XR'
+alias vimdiff="vimdiff -c 'set diffopt+=iwhite'"
+alias wget="wget -c"
+alias which='type'
+alias xargs='xargs '

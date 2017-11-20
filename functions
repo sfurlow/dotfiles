@@ -1,0 +1,78 @@
+# .bashrc
+
+a()
+{
+    ant -quiet "$@" -find build.xml
+}
+
+gi()
+{
+    if [[ $1 == t* ]]
+    then
+        shift
+    fi
+    git "$@"
+}
+
+cdd()
+{
+    cd $(dirname $1)
+}
+
+dc()
+{
+    for ((i=0; i<${#1}; i++))
+    {
+        cd ..
+    }
+}
+
+sum_retire_analysis()
+{
+    if [[ "$#" != 1 ]]
+    then
+        echo "Usage $0 input_file"
+    else
+        if [[ -f $1 ]]
+        then
+            cat "$1" | awk '{a[$1"\t"$2"\t"$3]+=$4}END{for(name in a)print name "\t" a[name]}' | sort | column -t
+        else
+            echo "$1 is not a file"
+        fi
+    fi
+}
+
+function createusr
+{
+    if [[ $# -ne 1 ]]
+    then
+        echo "Need username"
+    else
+        d=~/.certauthority
+        mkdir ${d}/newcerts/${1}
+        openssl req -config ${d}/config.cnf -newkey rsa:2048 -keyout ${d}/newcerts/${1}/${1}.key -out ${d}/newcerts/${1}/${1}.req
+    fi
+}
+
+function signusr
+{
+    if [[ $# -ne 1 ]]
+    then
+        echo "Need username"
+    else
+        d=~/.certauthority
+        ( cd ~ && openssl ca -config ${d}/config.cnf -out ${d}/newcerts/${1}/${1}.crt -infiles ${d}/newcerts/${1}/${1}.req )
+    fi
+}
+
+function convertpfx
+{
+    if [[ $# -ne 1 ]]
+    then
+        echo "Need username"
+    else
+        d=~/.certauthority
+        e=${d}/newcerts/${1}
+        ( cd ~ && openssl pkcs12 -export -out ${e}/${1}.pfx -inkey ${e}/${1}.key -in ${e}/${1}.crt -certfile ${d}/ca.cert.pem )
+    fi
+}

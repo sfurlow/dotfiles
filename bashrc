@@ -1,107 +1,58 @@
-# If not running interactively, don't do anything
-case $- in
-    *i*) ;;
-      *) return;;
-esac
+# .bashrc
 
-export PATH="$HOME/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/src/git-scripts:$PATH"
+if [[ -z $PATH_SET ]]
+then
+    export PATH=~/.local/bin:$PATH
+    export PATH=$HOME/src/git-scripts:$PATH
+    export PATH_SET=1
+fi
 
-HISTCONTROL=ignoreboth # don't put duplicate lines or lines starting with space in the history.
-HISTSIZE=10000
-HISTFILESIZE=2000
+
+export SHELL=/bin/bash
+export INPUTRC=$HOME/.inputrc
+export GIT_PAGER=less
+export PAGE=less
 
 export EDITOR=vim
+export LESS="-XFR"
+export LS_COLORS="di=31:ln=36:pi=34:so=33:bd=1;33:cd=1;35:ex=32"
+export HISTFILESIZE=50000
+export TZ=GMT
+export TERM=xterm-256color
+export XMLLINT_INDENT="    "
 
-shopt -s histappend # append to the history file, don't overwrite it
+#[[ -f <path-to-git-completion.bash]] && . <path-to-git-completion.bash
+#[[ -f <path-to-git-prompt.sh]] && . <path-to-git-prompt.sh
 
-PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+# The \[ ... \]sequence in PS1 prevents non-printable characters from being counted in the prompt length, which determines when to wrap lines
+export PS1_BLACK="$(tput bold)$(tput setaf 0)"
+export PS1_RED="$(tput bold)$(tput setaf 1)"
+export PS1_GREEN="$(tput bold)$(tput setaf 2)"
+export PS1_YELLOW="$(tput bold)$(tput setaf 3)"
+export PS1_BLUE="$(tput bold)$(tput setaf 4)"
+export PS1_MAGENTA="$(tput bold)$(tput setaf 5)"
+export PS1_CYAN="$(tput bold)$(tput setaf 6)"
+export PS1_WHITE="$(tput bold)$(tput setaf 7)"
+export PS1_RESET=$(tput sgr0)
+export GIT_PS1_SHOWDIRTYSTATE=1
+export GIT_PS1_SHOWSTASHSTATE=1
+export GIT_PS1_SHOWUNTRACKEDFILES=1
+export GIT_PS1_SHOWCOLORHINTS=1
+export PS1_GIT='$(__git_ps1 "[\[$PS1_RED\]%s\[$PS1_RESET\]]")'
+export PS1_PWD='\w'
+if [[ $CLEARCASE_ROOT ]]
+then
+    export PS1_CURRENT_VIEW='[\[$PS1_GREEN\]$(basename $CLEARCASE_ROOT)\[$PS1_RESET\]]'
+fi
+export PS1="\n$PS1_CURRENT_VIEW$PS1_GIT[\[$PS1_GREEN\]scottyp\[$PS1_WHITE\]@\[$PS1_YELLOW\]\h\[$PS1_WHITE\]:\[$PS1_CYAN\]$PS1_PWD\[$PS1_RESET\]]\n\$ "
 
-# check the window size after each command and, if necessary,
-# update the values of LINES and COLUMNS.
-shopt -s checkwinsize
-
-# make less more friendly for non-text input files, see lesspipe(1)
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
-
-# set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
+# interactive vs. non-interactive
+if [[ $- = *i* ]]
+then
+    #Disable Ctrl-S
+    stty ixany
+    stty ixoff -ixon
 fi
 
-# set a fancy prompt (non-color, unless we know we "want" color)
-case "$TERM" in
-    xterm-color|*-256color) color_prompt=yes;;
-esac
-
-
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
-
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-
-fi
-
-# some more ls aliases
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-  fi
-fi
-
-alias vi='vim -X'
-alias which=type
-#alias pip=pip3
-alias starttomcat="systemctl start tomcat8"
-alias stoptomcat="systemctl stop tomcat8"
-alias restarttomcat="systemctl restart tomcat8"
-#alias python=python3
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
-alias more="less"
-alias src="cd ~/src"
-alias scm="cd ~/scm"
-alias ghc="stack ghc"
-alias ghci="stack ghci"
-alias gt="gnupod-tools"
-alias gnupod_search="gnupod_search -m /media/scottyp/BEARS\!/"
-alias gnupod_addsong="gnupod_search -m /media/scottyp/BEARS\!/"
-alias gnupod_unplug='mktunes -m /media/scottyp/BEARS\!/ && umount /media/scottyp/BEARS\!/'
-alias lynx="lynx -cfg=/home/scottyp/lynx.cfg"
-alias open="xdg-open"
-
-function dc
-{
-  if [[ $# != 1 ]]
-  then
-    echo "Usage: dc <characters>
-    Will move up a directory for every character type"
-    return
-  fi
-  local temp
-  temp="$1"
-  for i in 1 $(seq 1  $((${#temp}-1)))
-  do
-    cd ..
-  done
-}
+[[ -f $HOME/.aliases || -L $HOME/.aliases ]] && . $HOME/.aliases
+[[ -f $HOME/.functions || -L $HOME/.functions ]] && . $HOME/.functions

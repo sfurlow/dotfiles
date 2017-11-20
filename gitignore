@@ -1,0 +1,17 @@
+*.swp
+build/
+AutoProvisioningService/AutoProvisioningService/
+UserProvisioningService/UserProvisioningService/
+!/igcEar/InfoViewApp/src/WEB-INF/classes/
+!igcEar/front_page/WebContent/WEB-INF/classes/
+dist/
+*.log
+*.jar
+*.tar
+*.bz
+*.bz2
+output/
+link_to_*
+__pycache__
+reports/
+/tags
