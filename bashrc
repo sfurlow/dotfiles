@@ -62,5 +62,13 @@ then
 fi
 export PS1="\n$PS1_CURRENT_VIEW$PS1_GIT[\[$PS1_GREEN\]scottyp\[$PS1_WHITE\]@\[$PS1_YELLOW\]\h\[$PS1_WHITE\]:\[$PS1_CYAN\]$PS1_PWD\[$PS1_RESET\]]\n\$ "
 
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
+
 [[ -f $HOME/.aliases || -L $HOME/.aliases ]] && . $HOME/.aliases
 [[ -f $HOME/.functions || -L $HOME/.functions ]] && . $HOME/.functions

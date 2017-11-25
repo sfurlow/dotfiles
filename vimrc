@@ -60,7 +60,7 @@ set tags=tags;
 "Filetype Syntax Highlighting
 au BufNewFile,BufRead *.wlst setf python
 au BufNewFile,BufRead *.xhtml setf xml
-autocmd BufNewFile,BufRead * if expand('%:t') !~ '\.' | set ft=sh | set syn=sh| endif
+"autocmd BufNewFile,BufRead * if expand('%:t') !~ '\.' | set ft=sh | set syn=sh | endif
 
 "Open new tab
 nnoremap <C-n> :tabnew!<CR>
