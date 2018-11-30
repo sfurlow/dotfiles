@@ -57,8 +57,10 @@
 [credential]
     helper = store
 [core]
-    excludesfile = /home/.gitignore
+    excludesfile = /home/scottyp/.gitignore
 [push]
     default = simple
 [difftool]
     prompt = false
+[commit]
+  template=~/.gitmessage

@@ -76,3 +76,22 @@ function convertpfx
         ( cd ~ && openssl pkcs12 -export -out ${e}/${1}.pfx -inkey ${e}/${1}.key -in ${e}/${1}.crt -certfile ${d}/ca.cert.pem )
     fi
 }
+
+function getbpm
+{
+    sox $1 -r 44100 -e float -c 1 -t raw - 2>/dev/null | bpm
+}
+
+function gpgtest
+{
+  gpg -o /dev/null -d $@ 2>/dev/null && echo "Success"
+}
+#git()
+#{
+#  if [[ "$1" == "commit" && "$2" == -m* ]]
+#  then
+#    echo "Stop using -m flag"
+#    return 1
+#  fi
+#  command git "$@"
+#}

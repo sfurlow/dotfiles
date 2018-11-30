@@ -12,9 +12,14 @@ alias decrypt="gpg -d"
 alias encrypt="gpg -c"
 alias ghc="stack ghc"
 alias ghci="stack ghci"
-alias gnupod_addsong="gnupod_search -m /media/scottyp/BEARS\!/"
-alias gnupod_search="gnupod_search -m /media/scottyp/BEARS\!/"
-alias gnupod_unplug='mktunes -m /media/scottyp/BEARS\!/ && umount /media/scottyp/BEARS\!/'
+alias gnupod_addsong="gnupod_addsong"
+alias gnupod_remove_artist="gnupod_search -d -a"
+alias gnupod_remove_id="gnupod_search -d -i"
+alias gnupod_remove_title="gnupod_search -d -t"
+alias gnupod_search_artist="gnupod_search -a"
+alias gnupod_search_title="gnupod_search -t"
+alias gnupod_search_id="gnupod_search -i"
+alias gnupod_unplug='mktunes && echo "Unmounting ..." && umount /media/scottyp/BEARS\!/ && eject /media/scottyp/BEARS\!/'
 alias grep="grep --color=auto"
 alias gt="gnupod-tools"
 alias header-c="curl -I --compress"
@@ -42,3 +47,5 @@ alias vimdiff="vimdiff -c 'set diffopt+=iwhite'"
 alias wget="wget -c"
 alias which='type'
 alias xargs='xargs '
+alias paperkey="paperkey"
+alias exiftool="exiftool -s"

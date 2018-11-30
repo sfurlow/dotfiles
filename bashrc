@@ -10,12 +10,14 @@ else
     return
 fi
 
-if [[ -z $PATH_SET ]]
-then
-    export PATH=~/.local/bin:$PATH
-    export PATH=$HOME/src/git-scripts:$PATH
-    export PATH_SET=1
-fi
+export PATH=$HOME/src/git-scripts:$PATH
+export PATH=/opt/maven/bin:$PATH
+export PATH=~/.local/bin:$PATH
+export PATH=~/bin:$PATH
+#export CDPATH=":./:~/src/"
+export PATH_SET=1
+#export DISPLAY=:0.0
+export XAUTHORITY=~/.Xauthority
 
 shopt -s checkwinsize
 shopt -s histappend
@@ -29,6 +31,7 @@ export EDITOR=vim
 export LESS="-XFR"
 export LS_COLORS="di=31:ln=36:pi=34:so=33:bd=1;33:cd=1;35:ex=32"
 export HISTFILESIZE=50000
+export HISTTIMEFORMAT="%F%T "
 export HISTCONTROL=ignoreboth
 export HISTSIZE=10000
 export TZ=GMT
