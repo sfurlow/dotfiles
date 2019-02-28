@@ -2,6 +2,9 @@ runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 call pathogen#helptags()
 
+set modeline
+set nocompatible
+
 "Syntax highlighting
 filetype plugin indent on
 syntax on
