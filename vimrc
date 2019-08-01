@@ -1,6 +1,6 @@
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-call pathogen#infect()
-call pathogen#helptags()
+"runtime bundle/vim-pathogen/autoload/pathogen.vim
+"call pathogen#infect()
+"call pathogen#helptags()
 
 set modeline
 set nocompatible
