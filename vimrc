@@ -1,6 +1,6 @@
-"runtime bundle/vim-pathogen/autoload/pathogen.vim
-"call pathogen#infect()
-"call pathogen#helptags()
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+call pathogen#infect()
+call pathogen#helptags()
 
 set modeline
 set nocompatible
@@ -22,7 +22,7 @@ set cursorline "Underlines current line
 set hlsearch "Highlight search options
 set ignorecase "Case-insensitive searching
 set incsearch "Vim searches after every keypress
-set relativenumber "Relative lines numbers
+set nu rnu "Relative and absolute lines numbers
 set copyindent
 set lazyredraw
 
@@ -211,3 +211,7 @@ endfunction
 
 "Bind the BufSel() function to a user-command
 command! -nargs=1 Bs :call BufSel("<args>")
+
+inoremap <LEADER>u <C-r>=system("uuidgen \| tr -d '\n' \| tr -d '-' \| tr [:lower:] [:upper:]")<CR><Esc>
+inoremap jk <Esc>
+vnoremap jk <Esc>

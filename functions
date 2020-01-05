@@ -119,3 +119,14 @@ gd()
     echo "Usage: gd [song id] | [artist] [song title]"
   fi
 }
+
+pandora()
+{
+  if [[ $# == 1 ]]
+  then
+    pianobar | tee "${1}"
+  else
+    echo "Usage: pandora tee_output_file"
+    return
+  fi
+}

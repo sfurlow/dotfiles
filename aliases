@@ -9,7 +9,7 @@ alias gnupod_search_artist="gnupod_search -a"
 alias gnupod_search_title="gnupod_search -t"
 alias gnupod_search_id="gnupod_search -i"
 alias gs="gnupod_search -m /media/scottyp/BEARS\!/"
-alias gnupod_unplug='mktunes -m /media/scottyp/BEARS\!/ && echo "Unmounting ..." && umount /media/scottyp/BEARS\!/ && eject /media/scottyp/BEARS\!/'
+alias gu='mktunes -m /media/scottyp/BEARS\!/ && echo "Unmounting ..." && umount /media/scottyp/BEARS\!/ && eject /media/scottyp/BEARS\!/'
 alias grep="grep --color=auto"
 alias gt="gnupod-tools"
 alias jsonlint="python3 -m json.tool"
@@ -29,3 +29,5 @@ alias vimdiff="vimdiff -c 'set diffopt+=iwhite'"
 alias which='type'
 alias xargs='xargs '
 alias cmus_clear="rm -r /home/scottyp/.config/cmus"
+alias youtube='mpsyt'
+alias gp='vi /media/scottyp/BEARS\!/iPod_Control/.gnupod/GNUtunesDB.xml'

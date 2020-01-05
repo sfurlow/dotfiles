@@ -37,6 +37,8 @@ export HISTSIZE=10000
 export TZ=GMT
 export TERM=xterm-256color
 export XMLLINT_INDENT="    "
+export WORKON=~/Envs
+source $HOME/.local/bin/virtualenvwrapper.sh
 
 #[[ -f <path-to-git-completion.bash]] && . <path-to-git-completion.bash
 #[[ -f <path-to-git-prompt.sh]] && . <path-to-git-prompt.sh
