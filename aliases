@@ -1,17 +1,7 @@
 # .bashrc
 
 alias ctags="ctags -R --exclude=build --exclude=dist --exclude=lib"
-alias gnupod_addsong="gnupod_addsong"
-alias gnupod_remove_artist="gnupod_search -d -a"
-alias gnupod_remove_id="gnupod_search -d -i"
-alias gnupod_remove_title="gnupod_search -d -t"
-alias gnupod_search_artist="gnupod_search -a"
-alias gnupod_search_title="gnupod_search -t"
-alias gnupod_search_id="gnupod_search -i"
-alias gs="gnupod_search -m /media/scottyp/BEARS\!/"
-alias gu='mktunes -m /media/scottyp/BEARS\!/ && echo "Unmounting ..." && umount /media/scottyp/BEARS\!/ && eject /media/scottyp/BEARS\!/'
 alias grep="grep --color=auto"
-alias gt="gnupod-tools"
 alias jsonlint="python3 -m json.tool"
 alias ls="ls --color=auto"
 alias mkdir="mkdir -pv"
@@ -30,4 +20,4 @@ alias which='type'
 alias xargs='xargs '
 alias cmus_clear="rm -r /home/scottyp/.config/cmus"
 alias youtube='mpsyt'
-alias gp='vi /media/scottyp/BEARS\!/iPod_Control/.gnupod/GNUtunesDB.xml'
+alias pianobar='/usr/bin/pianobar | tee -a $HOME/songs.txt'

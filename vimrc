@@ -214,4 +214,9 @@ command! -nargs=1 Bs :call BufSel("<args>")
 
 inoremap <LEADER>u <C-r>=system("uuidgen \| tr -d '\n' \| tr -d '-' \| tr [:lower:] [:upper:]")<CR><Esc>
 inoremap jk <Esc>
-vnoremap jk <Esc>
+"vnoremap jk <Esc>
+
+nnoremap <leader>gs :InsertBothGetterSetter<CR>
+vnoremap <leader>gs :InsertBothGetterSetter<CR>
+nnoremap <leader>gg :InsertGetterOnly<CR>
+vnoremap <leader>gg :InsertGetterOnly<CR>

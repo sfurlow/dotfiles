@@ -5,15 +5,6 @@ a()
     ant -quiet "$@" -find build.xml
 }
 
-gi()
-{
-    if [[ $1 == t* ]]
-    then
-        shift
-    fi
-    git "$@"
-}
-
 cdd()
 {
     cd $(dirname $1)
@@ -85,48 +76,4 @@ getbpm()
 function gpgtest
 {
   gpg -o /dev/null -d $@ 2>/dev/null && echo "Success"
-}
-
-ga()
-{
-  if [[ $# == 1 ]]
-  then
-    /usr/bin/gnupod_addsong -m /media/scottyp/BEARS\!/ -- "$1"
-  else
-    echo "Need song"
-  fi
-}
-
-gd()
-{
-  if [[ $# == 1 ]]
-  then
-    /usr/bin/gnupod_search -m /media/scottyp/BEARS\!/ -i=-${1}-${1}
-    read -p "Continue [y|n]?" prompt
-    if [[ "$prompt" == 'y' ]]
-    then
-      /usr/bin/gnupod_search -m /media/scottyp/BEARS\!/ -i=-${1}-${1} -d
-    fi
-  elif [[ $# == 2 ]]
-  then
-    /usr/bin/gnupod_search -m /media/scottyp/BEARS\!/ -a="${1}" -t="${2}"
-    read -p "Continue [y|n]?" prompt
-    if [[ "$prompt" == 'y' ]]
-    then
-      /usr/bin/gnupod_search -m /media/scottyp/BEARS\!/ -a="${1}" -t="${2}" -d
-    fi
-  else
-    echo "Usage: gd [song id] | [artist] [song title]"
-  fi
-}
-
-pandora()
-{
-  if [[ $# == 1 ]]
-  then
-    pianobar | tee "${1}"
-  else
-    echo "Usage: pandora tee_output_file"
-    return
-  fi
 }

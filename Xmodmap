@@ -1,0 +1,13 @@
+clear Lock
+keycode 66 = Hyper_L
+add mod4 = Hyper_L
+keycode 87 = 1 exclam
+keycode 88 = 2 at
+keycode 89 = 3 numbersign
+keycode 83 = 4 dollar
+keycode 84 = 5 percent
+keycode 85 = 6 asciicircum
+keycode 79 = 7 ampersand
+keycode 80 = 8 parenleft
+keycode 81 = 9 parenright
+keycode 90 = 0 equal

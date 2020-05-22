@@ -77,3 +77,8 @@ fi
 
 [[ -f $HOME/.aliases || -L $HOME/.aliases ]] && . $HOME/.aliases
 [[ -f $HOME/.functions || -L $HOME/.functions ]] && . $HOME/.functions
+
+v() { t=${2:-java}; vim $(find $1 -type f -name "*.${t}"); };
+
+alias snes="/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=snes9x-gtk --file-forwarding com.snes9x.Snes9x @@ %F @@"
+alias lisp="rlwrap sbcl"
