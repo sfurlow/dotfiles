@@ -10,10 +10,12 @@ else
     return
 fi
 
+export GEM_HOME=~/.ruby
 export PATH=$HOME/src/git-scripts:$PATH
 export PATH=/opt/maven/bin:$PATH
 export PATH=~/.local/bin:$PATH
 export PATH=~/bin:$PATH
+export PATH=~/.ruby/bin:$PATH
 #export CDPATH=":./:~/src/"
 export PATH_SET=1
 #export DISPLAY=:0.0
@@ -82,3 +84,7 @@ v() { t=${2:-java}; vim $(find $1 -type f -name "*.${t}"); };
 
 alias snes="/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=snes9x-gtk --file-forwarding com.snes9x.Snes9x @@ %F @@"
 alias lisp="rlwrap sbcl"
+
+alias remap_mouse="xinput set-button-map 10 1 3 2 4 5"
+alias list_mouse="xinput list"
+alias test_mouse="xinput test 10"

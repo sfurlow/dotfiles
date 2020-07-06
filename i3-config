@@ -157,4 +157,5 @@ bar {
         status_command i3status
 }
 
-exec google-chrome
+exec i3-sensible-terminal
+#exec google-chrome
