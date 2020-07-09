@@ -44,10 +44,11 @@ set shiftround
 set expandtab
 
 "Define status line colors
-hi User1 ctermfg=7 ctermbg=black
-hi User2 ctermfg=1 ctermbg=black
-hi User3 ctermfg=3 ctermbg=black
-hi User4 ctermfg=6 ctermbg=black
+"hi User1 ctermfg=7 ctermbg=black
+hi User1 ctermfg=7
+hi User2 ctermfg=1
+hi User3 ctermfg=3
+hi User4 ctermfg=6
 
 function! StatuslineGit()
     let l:branchname = system('get_git_branch.sh')
