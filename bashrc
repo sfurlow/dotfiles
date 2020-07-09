@@ -82,21 +82,6 @@ dc()
     }
 }
 
-sum_retire_analysis()
-{
-    if [[ "$#" != 1 ]]
-    then
-        echo "Usage $0 input_file"
-    else
-        if [[ -f $1 ]]
-        then
-            cat "$1" | awk '{a[$1"\t"$2"\t"$3]+=$4}END{for(name in a)print name "\t" a[name]}' | sort | column -t
-        else
-            echo "$1 is not a file"
-        fi
-    fi
-}
-
 function createusr
 {
     if [[ $# -ne 1 ]]
